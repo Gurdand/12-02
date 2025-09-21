@@ -35,21 +35,21 @@ SELECT user, host FROM mysql.user;
 ```
 ![Список пользователей в БД](./img/12-02-1.PNG)
 4. `Дайте все права для пользователя sys_temp.`
-**```SQL
+```
 GRANT ALL PRIVILEGES ON *.* TO 'sys_temp'@'localhost';
 FLUSH PRIVILEGES;
-**
+```
 5. `Выполните запрос на получение списка прав для пользователя sys_temp. (скриншот)`
 ```
 SHOW GRANTS FOR 'sys_temp'@'localhost';
 ```
 ![Список прав пользователя sys_temp](./img/12-02-2.PNG)
 6. `Переподключитесь к базе данных от имени sys_temp.`
-**```SQL
+```
 ALTER USER 'sys_temp'@'localhost' IDENTIFIED WITH mysql_native_password BY '123';
 
 -- SQL Error [1524] [HY000]: Plugin 'mysql_native_password' is not loaded
-**
+```
 `Создал новое соединение:`
 
 ![Соединение с БД от имени sys_temp](./img/12-02-3.PNG)
